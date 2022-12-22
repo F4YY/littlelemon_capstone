@@ -7,6 +7,9 @@ function App() {
         <p>
           I am Software Engineer
         </p>
+        <p>
+          I will surpass your salary gandrunnggg
+        </p>
       </header>
     </div>
   );

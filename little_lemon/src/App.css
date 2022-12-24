@@ -1,8 +1,30 @@
-.App {
-  text-align: center;
-}
+/* .container {
+  display: grid;
+  grid-template-columns: repeat(3, 390px);
+  grid-auto-rows: minmax(150px, auto);
+  } */
 
-.App-logo {
+/* @media (max-width: 700px) {
+    .grid-adjustable-columns {
+      display: grid;
+      grid-auto-flow: column;
+    }
+  }
+
+@media (min-width: 701px) {
+    .grid-adjustable-columns {
+      width: min(1000px,75rem);
+      margin: 0 auto;
+      grid-auto-flow: column;
+      gap: 1em;
+    }
+  } */
+
+/* .App {
+  text-align: center;
+} */
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -11,28 +33,100 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+/* .App-header {
+  background-color:whitesmoke;
+  max-height: 100vh;
+  display: grid;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: calc(3px + 2vmin);
+  color:black;
+  font-family: catamaran;
+  list-style-type: none;
+} */
+
+/* article{
+  width: 280px;
+  height: 77px;
+  font-family: 'Markazi Text';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 77px;
+color: #F4CE14;
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: -21px 0px;
+} */
+
+img{
+  position: absolute;
+  width: 479px;
+  height: 495px;
+  left: 707px;
+  top: 160px;
+  border-radius: 16px;
+}
+
+.Avatar{
+position: absolute;
+width: 211px;
+height: 58px;
+left: 1px;
+top: 2px;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1{
+width: 480px;
+height: 77px;
+font-family: 'Markazi Text';
+font-style: normal;
+font-weight: 500;
+font-size: 64px;
+line-height: 77px;
+color: #F4CE14;
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: -1px 0px;
+}
+
+h2{
+  width: 200px;
+  height: 48px;
+/* Subheading */
+font-family: 'Markazi Text';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+/* identical to box height */
+color: #EDEFEE;
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+
+article{
+position: absolute;
+width: 354px;
+height: 117px;
+left: 290px;
+top: 287px;
+font-family:'Karla';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 28px;
+color: #FFFFFF;
+
 }

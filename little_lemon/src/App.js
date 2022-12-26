@@ -3,31 +3,31 @@ import {ChakraProvider} from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import HeroSection from "./components/HeroSection";
 import Highlights from "./components/Highlights";
+import ReserveTable from "./components/ReserveTable";
 import Testimonials from "./components/Testimonials";
 import About from "./components/About";
 import FootNav from "./components/FootNav";
-import OffsettingExample from "./components/FootNav";
-import AutoLayoutExample from "./components/FootNav";
-import ResponsiveAutoExample from "./components/FootNav";
-import HorizontalExample from "./components/FootNav";
-import ButtonsExample from "./components/FootNav";
 import ThemeProvider from 'react-bootstrap/ThemeProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Specials from "./components/Specials";
+import {AlertProvider} from "./context/alertContext";
+import Alert from "./components/Alert";
 
 function App() {
     return (
       <ChakraProvider>
-      <ThemeProvider>
+        <AlertProvider>
           <main>
             <NavBar/>
-            <Specials/>
+            <HeroSection/>
             <Highlights/>
+            <ReserveTable/>
             {/* <Testimonials />
             <About />  */}
             {/* <FootNav /> */}
+            <Alert />
           </main>
-      </ThemeProvider>
+        </AlertProvider>
       </ChakraProvider>
     );
   }

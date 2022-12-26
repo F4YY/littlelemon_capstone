@@ -29,6 +29,17 @@ const highlightings = [
   },
 ];
 
+const handleClick = (anchor) => () => {
+  const id = `${anchor}-section`;
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+};
+
 function Highlights() {
   return (
     <FullScreenLL
@@ -37,13 +48,15 @@ function Highlights() {
       alignItems="flex-start"
       spacing={8}
     >
-      <Center backgroundColor="white">
+      <Center backgroundColor="white" id="Specials">
       <VStack>
         <HStack spacing={20} verticalAlign="auto">
           <Heading mt={2} mb={3} color="#333333">
             This Weeks Specials!
           </Heading>
-          <Button color="#333333" fontWeight="bold" backgroundColor="rgb(244,206,20)" w={200} borderRadius={10}>Order Online</Button>
+          <a href="#Specials" onClick={handleClick("Button Order Online")}>
+            <Button color="#333333" fontWeight="bold" backgroundColor="rgb(244,206,20)" w={200} borderRadius={10} id="Order Online">Order Online</Button>
+          </a>
         </HStack>
         <HStack spacing={5} mt={5}>
           <VStack borderRadius={16} backgroundColor="rgb(217,217,217)" w="300px">

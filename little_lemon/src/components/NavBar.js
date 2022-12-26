@@ -121,13 +121,13 @@ const NavBar = () => {
                 <a href="#About" onClick={handleClick("About")}>
                   About
                 </a>
-                <a href="#Menu" onClick={handleClick("Menu")}>
+                <a href="#Specials" onClick={handleClick("Menu")}>
                   Menu
                 </a>
                 <a href="#Reservation" onClick={handleClick("Reservation")}>
                   Reservation
                 </a>
-                <a href="#OrderOnline" onClick={handleClick("OrderOnline")}>
+                <a href="#Specials" onClick={handleClick("Order Online")}>
                   Order Online
                 </a>
                 <a href="#Login" onClick={handleClick("Login")}>

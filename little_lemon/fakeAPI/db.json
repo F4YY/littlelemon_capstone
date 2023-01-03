@@ -1,0 +1,24 @@
+{
+  "Reservation_guest": [
+    {
+      "id": 1,
+      "Name": "json-server",
+      "email": "json@server.com",
+      "date": "",
+      "time": "",
+      "no_of_guests": "",
+      "occasion": "",
+      "notes": ""
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

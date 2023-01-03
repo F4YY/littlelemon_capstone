@@ -1,110 +1,92 @@
-// import React from "react";
-// import {Box, Flex} from "@chakra-ui/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faGithub,
+  faLinkedin,
+  faInstagram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import { Box, Heading, HStack, VStack } from "@chakra-ui/react";
+import LL_Footer from "./images/LL_Footer.png";
 
-// const FootNav = () => {
-//   return (
-//     <Box backgroundColor="#18181b">
-//       <FootNav>
-//         <Flex
-//           margin="0 auto"
-//           px={12}
-//           color="black"
-//           justifyContent="center"
-//           alignItems="center"
-//           maxWidth="1024px"
-//           height={16}
-//         >
-//           <p>Riki • © 2022</p>
-//         </Flex>
-//       </FootNav>
-//     </Box>
-//   );
-// };
-// export default FootNav;
+const socials = [
+  {
+    icon: faEnvelope,
+    url: "mailto: rikiwendri@gmail.com",
+  },
+  {
+    icon: faGithub,
+    url: "https://github.com/F4YY",
+  },
+  {
+    icon: faLinkedin,
+    url: "https://www.linkedin.com/in/rikiwendri/",
+  },
+  {
+    icon: faInstagram,
+    url: "https://www.instagram.com/fays.dalgona",
+  },
+  {
+    icon: faTwitter,
+    url: "https://www.twitter.com",
+  },
+];
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
-// function OffsettingExample() {
-//   return (
-//     <Container>
-//       <Row>
-//         <Col md={4}>md=4</Col>
-//         <Col md={{ span: 4, offset: 4 }}>{`md={{ span: 4, offset: 4 }}`}</Col>
-//       </Row>
-//       <Row>
-//         <Col md={{ span: 3, offset: 3 }}>{`md={{ span: 3, offset: 3 }}`}</Col>
-//         <Col md={{ span: 3, offset: 3 }}>{`md={{ span: 3, offset: 3 }}`}</Col>
-//       </Row>
-//       <Row>
-//         <Col md={{ span: 6, offset: 3 }}>{`md={{ span: 6, offset: 3 }}`}</Col>
-//       </Row>
-//     </Container>
-//   );
-// }
-
-// export default OffsettingExample;
-
-// function AutoLayoutExample() {
-//   return (
-//     <Container backgroung-color='yellow' color='red'>
-//       <Row>
-//         <Col>1 of 2</Col>
-//         <Col>2 of 2</Col>
-//       </Row>
-//       <Row>
-//         <Col>1 of 3</Col>
-//         <Col>2 of 3</Col>
-//         <Col>3 of 3</Col>
-//       </Row>
-//     </Container>
-//   );
-// }
-
-// export default AutoLayoutExample;
-
-// function ResponsiveAutoExample() {
-//   return (
-//     <Container background-color='red'>
-//       <Row>
-//         <Col sm={4} color='red'>i am software engineer</Col>
-//         <Col sm={4}>sm=4</Col>
-//       </Row>
-//       <Row>
-//         <Col sm>sm=true</Col>
-//         <Col sm>sm=true</Col>
-//         <Col sm>sm=true</Col>
-//       </Row>
-//     </Container>
-//   );
-// }
-
-// export default ResponsiveAutoExample;
-
-import Stack from 'react-bootstrap/Stack';
-
-function HorizontalExample() {
+const FootNav = () => {
   return (
-    <Stack direction="horizontal" gap={3}>
-      <div className="bg-light border">First item</div>
-      <div className="bg-light border">Second item</div>
-      <div className="bg-light border">Third item</div>
-    </Stack>
+      <Box color="lightgrey" maxWidth="auto" padding="1rem 4rem"
+            translateY={0}
+            transitionProperty="transform"
+            transitionDuration=".3s"
+            transitionTimingFunction="ease-in-out"
+            backgroundColor="#18181b"
+      >
+          <footer>
+            <HStack
+              justifyContent="space-between"
+              display="flex"
+              flexDirection={{base:"column", sm: "column",md:"row", lg:"row"}}
+              flexWrap={{base:"wrap", sm: "column",md:"row", lg:"auto"}}
+              gap={8}
+            >
+              <VStack spacing={2} display="flex">
+                <p>Visit our social media</p>
+                <HStack display="flex">
+                  {socials.map(({icon, url}) => (
+                    <a
+                        key={url}
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <FontAwesomeIcon icon={icon} size="2x" key={url} />
+                    </a>
+                  ))}
+                </HStack>
+              </VStack>
+              <VStack spacing={1} alignItems="left">
+                <Heading as="h1" fontSize={{base: "16px", md: "20px", lg:"22px"}} display={{base:"none",md:"flex",lg:"flex"}} color="azure">
+                    Contact :
+                </Heading>
+                <p>Address : St James Park, Chicago</p>
+                <p>Phone Number : 0251-8577-346</p>
+                <p>e-mail : littlelemon@gmail.com</p>
+              </VStack>
+              <VStack spacing={1} alignItems="left">
+                <Heading as="h2" fontSize={{base: "16px", md: "20px", lg:"22px"}} color="azure">
+                    Open hours :
+                </Heading>
+                <p>Monday-Friday : 08:00 - 20:00</p>
+                <p>Saturday-Sunday : 10:00 - 23:00</p>
+                <p>National Holiday : Close</p>
+              </VStack>
+              <HStack spacing={2}>
+                <p>• Little Lemon ©2022 •</p>
+                <img src={LL_Footer} alt="LL_Footer"/>
+              </HStack>
+            </HStack>
+          </footer>
+      </Box>
   );
-}
-
-export default HorizontalExample;
-
-// import Button from 'react-bootstrap/Button';
-
-// function ButtonsExample() {
-//   return (
-//     <Stack gap={2} className="col-md-4 mx-auto">
-//       <Button variant="secondary">Save changes</Button>
-//       <Button variant="outline-secondary">Cancel</Button>
-//     </Stack>
-//   );
-// }
-
-// export default ButtonsExample;
+};
+export default FootNav;

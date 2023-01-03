@@ -3,9 +3,9 @@ import App from './App';
 import ReserveTable from './components/ReserveTable';
 
 
-test('Renders the Reserve a table heading', () => {
+test('Renders the Reserve a table form input', () => {
 render(<App />);
-const linkElement = screen.getByText("Reservation");
+const linkElement = screen.getByText("form");
 expect(linkElement).toBeInTheDocument();
 })
 

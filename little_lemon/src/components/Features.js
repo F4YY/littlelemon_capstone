@@ -13,17 +13,17 @@ const handleClick = (anchor) => () => {
 const Features = ({ title, subtitle, desc, button, image }) => {
     return (
         <Box
-        p={3}
-        shadow='lg'
-        display="grid"
-        columns={{ sm: 2, md: 4 }}
-        w="sm" h="sm"
+          p={3}
+          shadow='lg'
+          display="flex"
+          flexDirection="column"
+          size={{base: "sm", md: "md", lg:"md"}}
         >
-        <Heading fontFamily="Markazi Text" fontSize="5xl" color="rgb(244,206,20)">{title}</Heading>
-        <Heading fontFamily="Markazi Text" fontSize="3xl" color="white">{subtitle}</Heading>
-        <Text mt={8} color="white">{desc}</Text>
+        <Heading fontFamily="Markazi Text" fontSize="7xl" color="rgb(244,206,20)" size={{base: "3xl", md: "4xl", lg:"7xl"}}>{title}</Heading>
+        <Heading fontFamily="Markazi Text" fontSize="5xl" color="white" size={{base: "2xl", md: "3xl", lg:"5xl"}}>{subtitle}</Heading>
+        <Text mt={8} maxWidth="350px" color="white">{desc}</Text>
         <a href="#Reservation" onClick={handleClick("Button Reserve a Table")}>
-          <Button mt={12} color="#333333" backgroundColor="rgb(244,206,20)" w={200} borderRadius={10}>{button}</Button>
+          <Button zIndex={0} mt={12} color="#333333" backgroundColor="rgb(244,206,20)" fontSize={{base: "16px", md: "19px", lg:"22px"}} borderRadius={10}>{button}</Button>
         </a>
         <Image>{image}</Image>
         </Box>

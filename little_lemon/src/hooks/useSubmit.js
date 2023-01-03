@@ -10,17 +10,19 @@ const useSubmit = () => {
   const [isLoading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
 
-  const submit = async (url, data) => {
+  const submit = async (data, url) => {
     const random = Math.random();
+    // url = "http://localhost:3002/Reservation_guest";
+    // axios.post(url);
     setLoading(true);
     try {
       await wait(2000);
-      if (random < 0.5) {
+      if (random < 0.1) {
         throw new Error("Something went wrong");
       }
       setResponse({
         type: 'success',
-        message: `Thanks for your submission ${data.firstName}, we will get back to you shortly!`,
+        message: `You've successfully reserve a table, ${data.Name}. Please check your email periodically as we will send your reservation data.`,
       })
     } catch (error) {
       setResponse({
@@ -32,7 +34,30 @@ const useSubmit = () => {
     }
   };
 
-  return { isLoading, response, submit };
+  const login = async (resvdata, url) => {
+    const random = Math.random();
+    // url = "http://localhost:3002/Reservation_guest";
+    // axios.post(url);
+    setLoading(true);
+    try {
+      await wait(2000);
+      if (random < 0.1) {
+        throw new Error("You have not been reserved a table yet");
+      }
+      setResponse({
+        type: 'success',
+        message: `Here is your reservation data, ${resvdata.Name}. Please show it to our cashier and or staff restaurant while you arrived for confirmation.`,
+      })
+    } catch (error) {
+      setResponse({
+        type: 'error',
+        message: 'You have no reservation data yet, please reserve a table using input form!',
+      })
+    } finally {
+      setLoading(false);
+    }
+  };
+  return { isLoading, response, submit, login };
 }
 
 export default useSubmit;

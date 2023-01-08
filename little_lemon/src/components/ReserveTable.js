@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import { useFormik } from "formik";
 import {
   Box,
@@ -16,8 +16,10 @@ import * as Yup from 'yup';
 import useSubmit from "../hooks/useSubmit";
 import {useAlertContext} from "../context/alertContext";
 import axios from "axios";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
-const ReserveTable = () => {
+const ReserveTable = (onSubmit) => {
   const {isLoading, response, submit} = useSubmit();
   const { onOpen } = useAlertContext();
 
@@ -36,12 +38,11 @@ const ReserveTable = () => {
       submit(value);
     },
     validationSchema: Yup.object({
-        Name: Yup.string().required("Required"),
+        Name: Yup.string("Name must not be empty").required("Required"),
         email: Yup.string().email("Invalid email address").required("Required"),
         notes: Yup.string()
         .min(10, "Must be 10 characters at minimum")
         .required("Required"),
-        date: Yup.string().required("Please select reservation date"),
         time: Yup.string().required("Please select available time"),
         no_of_guests: Yup.string().required("Please select number of quests"),
         occasion: Yup.string().required("Please select occasion"),
@@ -54,16 +55,25 @@ const ReserveTable = () => {
                 formik.resetForm();
             }
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [response]);
+
+  const [startDate, setStartDate] = useState(new Date());
+  const sleep = ms => new Promise(r => setTimeout(r, ms))
+  const handleSubmit = async values => {
+    await sleep(500)
+    onSubmit(values)
+  }
 
   return (
     <Box backgroundColor="rgb(238,153,114)"
           justifyContent="center"
           alignItems="flex-start"
           display="flex"
+          onSubmit={handleSubmit}
     >
       <VStack w="1024px" p={10} zIndex={0}>
-        <Heading as="h1" id="Reservation" fontSize={{base: "25px", md: "30px", lg:"36px"}} pb={4}>
+        <Heading as="h1" id="Reservation-section" fontSize={{base: "25px", md: "30px", lg:"36px"}} pb={4}>
           Reserve a Table
         </Heading>
         <Box p={4} rounded="xl" width={{base: "100%", md: "50%", lg:"50%"}} backgroundColor="azure">
@@ -90,10 +100,10 @@ const ReserveTable = () => {
               </FormControl>
               <FormControl isInvalid={!!formik.errors.date && formik.touched.date}>
                 <FormLabel htmlFor="datepicker">Choose date</FormLabel>
-                <input type="date" id="res-date" name="date"
-                    minDate={new Date()}
-                    {...formik.getFieldProps("date")}
-                    required
+                <DatePicker type="date" id="res-date" name="date"
+                selected={startDate} onChange={(date) => setStartDate(date)}
+                minDate={new Date()}
+                // {...formik.getFieldProps("date")}
                 />
                 <FormErrorMessage>{formik.errors.date}</FormErrorMessage>
               </FormControl>
@@ -102,11 +112,12 @@ const ReserveTable = () => {
                     <Select id="res-time" name="time" w="60%" {...formik.getFieldProps("time")} required>
                         <option disabled>--select time--</option>
                         <option>17:00</option>
+                        <option>17:30</option>
                         <option>18:00</option>
+                        <option>18:30</option>
                         <option>19:00</option>
+                        <option>19:30</option>
                         <option>20:00</option>
-                        <option>21:00</option>
-                        <option>22:00</option>
                     </Select>
                     <FormErrorMessage>{formik.errors.time},</FormErrorMessage>
               </FormControl>
@@ -158,3 +169,4 @@ const ReserveTable = () => {
 };
 
 export default ReserveTable;
+

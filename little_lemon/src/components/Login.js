@@ -14,25 +14,24 @@ import {
 } from "@chakra-ui/react";
 import * as Yup from 'yup';
 import useSubmit from "../hooks/useSubmit";
-import resvdata from "../hooks/useSubmit";
 import {useAlertContext} from "../context/alertContext";
 import axios from "axios";
 
 const Login = () => {
   const {isLoading, response, login} = useSubmit();
   const { onOpen } = useAlertContext();
-  let guestdata = document.getElementById("root")
   let formik = useFormik({
     initialValues: {
       Name: "",
       email: "",
     },
     onSubmit: (value) => {
-        login(value);
-      axios.get('http://localhost:3001/Reservation_guest?formik.email=email', value)
-      .then(res=>res.json())
-      .then(json=>{
-        json.map(guestdata=>{return resvdata.append(guestdata) });})
+      login(value);
+
+    axios.get("http://localhost:3001/Reservation_guest").then(res => res.json()).then(result => this.setState({
+      loading: false,
+      users: result
+      }))
     },
     validationSchema: Yup.object({
         Name: Yup.string().required("Required"),
@@ -46,6 +45,7 @@ const Login = () => {
                 formik.resetForm();
             }
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [response]);
 
   return (
@@ -66,7 +66,7 @@ const Login = () => {
             pb={6}
             zIndex={0}
         >
-          <Heading as="h3" p={2} id="Login" fontSize={{base: "25px", md: "30px", lg:"34px"}}>
+          <Heading as="h3" p={2} id="Login-section" fontSize={{base: "25px", md: "30px", lg:"34px"}}>
             Login to check your reservation data
           </Heading>
           <Box p={5} rounded="xl" backgroundColor="azure">
@@ -105,8 +105,8 @@ const Login = () => {
                     columns={{ sm: 2, md: 4 }}
                     w="sm" h="auto"
                     >
-                    <Heading fontFamily="Markazi Text" fontSize="xl" color="black">{guestdata.Name}</Heading>
-                    <Heading fontFamily="Markazi Text" fontSize="xl" color="black">{guestdata.email}</Heading>
+                    <Heading fontFamily="Markazi Text" fontSize="xl" color="black">{formik.Name}</Heading>
+                    <Heading fontFamily="Markazi Text" fontSize="xl" color="black">{formik.email}</Heading>
                     <Text mt={0} color="white">{formik.date}</Text>
                 </Box>
             </HStack>

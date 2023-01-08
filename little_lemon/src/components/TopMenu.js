@@ -1,9 +1,9 @@
-import { Heading, VStack, Text, HStack, Image } from "@chakra-ui/react";
+import { Heading, VStack, Text, HStack } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCar } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 
-const TopMenu = ({ title, price, subtitle, desc, button, image }) => {
+const TopMenu = ({ title, price, subtitle, desc }) => {
     return (
     <VStack
        color="rgb(51,51,51)"
@@ -14,9 +14,9 @@ const TopMenu = ({ title, price, subtitle, desc, button, image }) => {
        <VStack spacing={5} p={4}
        >
          <HStack
-                justifyContent="space-between"
-                flexDirection="row"
-                spacing={100}
+            justifyContent="space-between"
+            flexDirection="row"
+            spacing={100}
          >
            <Heading as="h3" size={{base: "sm", md: "md", lg:"md"}}>
              {title}
@@ -29,11 +29,11 @@ const TopMenu = ({ title, price, subtitle, desc, button, image }) => {
            {desc}
          </Text>
          <HStack spacing={7}>
-         <Heading
+          <Heading
             fontFamily="Karla"
             fontSize="lg"
             color="#333333">{subtitle}
-         </Heading>
+          </Heading>
            <FontAwesomeIcon icon={faCar} size="1x" />
          </HStack>
        </VStack>

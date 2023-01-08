@@ -17,7 +17,7 @@ const Highlight = () => {
         }
       };
 
-const scrollRef = React.useRef(null);
+    const scrollRef = React.useRef(null);
 
     return(
         <Box>
@@ -29,11 +29,16 @@ const scrollRef = React.useRef(null);
                 flexDirection={{base:"column", md:"row", lg:"row"}}
                 p={4}
             >
-                <Heading as="h1" id="Specials" fontSize={{base: "25px", md: "30px", lg:"36px"}} color="rgb(51,51,51)">
+                <Heading as="h1" id="Menu-section" fontSize={{base: "25px", md: "30px", lg:"36px"}} color="rgb(51,51,51)">
                     This Weeks Specials!
                 </Heading>
-                <a href="#Specials" onClick={handleClick("Button Order Online")}>
-                    <Button zIndex={0} fontSize={{base: "16px", md: "19px", lg:"22px"}} color="#333333" fontWeight="bold" backgroundColor="rgb(244,206,20)" w={200} borderRadius={10} id="Order Online">Order Online</Button>
+                <a href="#Menu" onClick={handleClick("Menu")}>
+                    <Button zIndex={0} fontSize={{base: "16px", md: "19px", lg:"22px"}}
+                    color="#333333" fontWeight="bold"
+                    backgroundColor="rgb(244,206,20)"
+                    w={200}
+                    borderRadius={10}
+                    id="Order Online">Order Online</Button>
                 </a>
             </HStack>
             <HStack

@@ -1,16 +1,17 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
-import ReserveTable from './components/ReserveTable';
+import HeroSection from './components/HeroSection';
+import Highlight from './components/Highlight';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-
-test('Renders the Reserve a table form input', () => {
-render(<App />);
-const linkElement = screen.getByText("form");
-expect(linkElement).toBeInTheDocument();
-})
-
-// test('renders learn react link', () => {
-//   render(<App />);
-//   const linkElement = screen.getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
+describe("Reserve a table", () => {
+    test('Renders reserve a table button in HeroSection', () => {
+        render(<Router><HeroSection /></Router>);
+        const buttonElement = screen.getByText("Reserve a Table");
+        expect(buttonElement).toBeInTheDocument();
+      });
+    test('Renders Order Online button in Highlight', () => {
+        render(<Router><Highlight /></Router>);
+        const buttonElement = screen.getByText("Order Online");
+        expect(buttonElement).toBeInTheDocument();
+      });
+});

@@ -12,7 +12,7 @@ import LL_Footer from "./images/LL_Footer.png";
 const socials = [
   {
     icon: faEnvelope,
-    url: "mailto: rikiwendri@gmail.com",
+    url: "mailto: info@littlelemon.com",
   },
   {
     icon: faGithub,
@@ -70,14 +70,14 @@ const FootNav = () => {
                 </Heading>
                 <p>Address : St James Park, Chicago</p>
                 <p>Phone Number : 0251-8577-346</p>
-                <p>e-mail : littlelemon@gmail.com</p>
+                <p>e-mail : info@littlelemon.com</p>
               </VStack>
               <VStack spacing={1} alignItems="left">
                 <Heading as="h2" fontSize={{base: "16px", md: "20px", lg:"22px"}} color="azure">
                     Open hours :
                 </Heading>
-                <p>Monday-Friday : 08:00 - 20:00</p>
-                <p>Saturday-Sunday : 10:00 - 23:00</p>
+                <p>Monday-Friday : 09:00 - 20:00</p>
+                <p>Saturday-Sunday : 11:00 - 22:00</p>
                 <p>National Holiday : Close</p>
               </VStack>
               <HStack spacing={2}>

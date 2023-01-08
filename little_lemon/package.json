@@ -22,8 +22,10 @@
     "react-bootstrap": "^2.7.0",
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
+    "react-fragment": "^1.0.0",
     "react-icons": "^4.7.1",
     "react-remove-scroll-bar": "^2.3.4",
+    "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
@@ -54,5 +56,10 @@
   },
   "devDependencies": {
     "json-server": "^0.17.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "axios": "axios/dist/node/axios.cjs"
+    }
   }
 }

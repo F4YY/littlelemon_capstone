@@ -11,7 +11,7 @@ const About = () => {
             pt={5} pb={5}
             justifyContent="center"
         >
-            <Heading as="h1" id="About" fontSize={{base: "25px", md: "30px", lg:"36px"}} color="white">
+            <Heading as="h1" id="About-section" fontSize={{base: "25px", md: "30px", lg:"36px"}} color="white">
                 About Us
             </Heading>
             <HStack
